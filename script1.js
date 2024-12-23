@@ -39,7 +39,7 @@ function changeButtonState(button) {
         button.style.backgroundColor = '';
         button.textContent = originalText;
         button.disabled = false;
-    }, 5000);
+    }, 500);
 }
 // Ejecutar la función al cargar la página
 document.addEventListener('DOMContentLoaded', displayData);
@@ -51,7 +51,7 @@ function showNotification(message) {
     document.body.appendChild(notification);
     setTimeout(() => {
         document.body.removeChild(notification);
-    }, 2000);
+    }, 200);
 }
 // Función para agregar producto al carrito
 function addToCart(productId, productName, productPrice, productTalle, productQuantity) {
@@ -250,8 +250,8 @@ document.querySelector('.clear-cart').addEventListener('click', function() {
 const confirmationMessage = document.getElementById('confirmation-message');
 confirmationMessage.innerHTML = `
   <h2>Compra Confirmada</h2>
-  <p>¡Gracias por su compra, ${document.getElementById('buyer-name').value}!
-  Pronto nos pondremos en contacto con Ud para indicarle la forma de pago!</p>
+  <p>¡Gracias por su compra, ${document.getElementById('buyer-name').value}Ud.
+ será redirigido a WhatsApp donde podrá confirmar su compra con todos los detalles proporcionados y le indicaremos la forma de pago. Si tiene alguna pregunta adicional, no dude en contactarnos. ¡Gracias por confiar en nosotros!</p>
 `;
 confirmationMessage.style.display = 'block';
 document.getElementById('dialog').style.display = 'none';
@@ -268,7 +268,7 @@ setTimeout(() => {
 
   // Ocultar el mensaje de confirmación después de redirigir
   confirmationMessage.style.display = 'none';
-}, 100);
+}, 2000);
 // Vaciar el carrito después de la confirmación
         localStorage.removeItem('cart');
         displayCart();
