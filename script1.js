@@ -22,7 +22,7 @@ async function displayData() {
             const productName = button.getAttribute('data-name');
             const productPrice = parseFloat(button.getAttribute('data-price'));
             const productTalle = ''; // o cualquier otro valor predeterminado
-            const productQuantity = 1; // o cualquier otro valor predeterminado
+           
             addToCart(productId, productName, productPrice, productTalle, productQuantity);
             changeButtonState(button);
         });
@@ -34,7 +34,7 @@ function changeButtonState(button) {
     const originalText = button.textContent;
     button.textContent = 'Producto agregado';
     button.disabled = true; // Deshabilitar el botón
-// Revertir el cambio después de 5 segundos
+// Revertir el cambio después de 1 segundo
     setTimeout(() => {
         button.style.backgroundColor = '';
         button.textContent = originalText;
@@ -199,17 +199,11 @@ document.querySelector('.clear-cart').addEventListener('click', function() {
         const buyerName = document.getElementById('buyer-name').value;
         const buyerPhone = document.getElementById('buyer-phone').value;
         const buyerEmail = document.getElementById('buyer-email').value;
-     // Configuración de los parámetros de EmailJS
-        const templateParams = {
-            name: buyerName,
-            phone: buyerPhone,
-            email: buyerEmail,
-            message: 'El botón de comprar ha sido presionado.'
-        };
+    
+       
         document.addEventListener('DOMContentLoaded', function() {
-            // Inicializar EmailJS con la Public Key
-            emailjs.init("z5kLRgpEiDGYL4lhx");
-            
+           
+           
             document.getElementById('confirmation-form').addEventListener('submit', function(event) {
                 event.preventDefault();
                 
@@ -218,13 +212,8 @@ document.querySelector('.clear-cart').addEventListener('click', function() {
                 const buyerPhone = document.getElementById('buyer-phone').value;
                 const buyerEmail = document.getElementById('buyer-email').value;
                 
-                // Configuración de los parámetros de EmailJS
-                const templateParams = {
-                    name: buyerName,
-                    phone: buyerPhone,
-                    email: buyerEmail,
-                    message: 'El botón de comprar ha sido presionado.'
-                };
+              
+                
         
                 // Enviar el correo utilizando EmailJS
                 emailjs.send('service_9olg4ok', 'template_hsl3vca', templateParams)
